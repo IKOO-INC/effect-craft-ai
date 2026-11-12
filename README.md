@@ -179,6 +179,11 @@ Bila kolom **container** diisi, aplikasi memakai `docker exec -w /work <containe
 >
 > `docker/Dockerfile` melakukan multi-stage build Rust (`-p effectcraft-cli`) lalu menyalin binary ke
 > `debian:bookworm-slim` dengan font DejaVu/Liberation. Isi **Settings → Image Docker** dengan tag hasil build.
+>
+> Renderer EffectCraft memakai **wgpu/GPU**. Container tanpa GPU memakai rasteriser perangkat lunak
+> (Mesa llvmpipe/lavapipe) — Dockerfile menyalakan `WGPU_BACKEND=gl` + `LIBGL_ALWAYS_SOFTWARE=1`, hasilnya
+> benar tetapi jauh lebih lambat. Untuk produksi, jalankan EffectCraft lokal dengan GPU, atau beri container
+> akses GPU (`--gpus all` + driver NVIDIA).
 
 Butuh Docker Desktop berjalan. Bila Docker belum terpasang/daemon mati, preflight melaporkan penyebabnya dan
 aplikasi tidak mencoba mengeksekusi apa pun.
@@ -338,38 +343,40 @@ Fixture: `tests/fixtures/prompts.json` (5 prompt) dan `tests/fixtures/plans/*.js
 
 1. **Rendering EffectCraft asli belum dijalankan di sini.** Tidak ada Windows, Rust, atau Docker di lingkungan
    build, dan unduhan binary rilis gagal (`SSL_ERROR_SYSCALL` ke `release-assets.githubusercontent.com`).
-   *Alternatif*: `scripts/verify_with_effectcraft.py` (bagian 8) untuk membuktikan di mesin Anda; demo di repo
-   memakai simulator dan diberi label demikian di mana-mana.
+   *Alternatif*: `scripts/verify_with_effectcraft.py` (bagian 8) untuk membuktikannya di mesin Anda; demo di
+   repo memakai simulator dan diberi label demikian di mana-mana.
 2. **GUI belum dites runtime.** `customtkinter`/`tkinter` tidak tersedia di sandbox sehingga jendela tidak
-   pernah dibuka; kode diverifikasi secara statis (parse AST, penanganan event, tidak ada `shell=True`).
-   Risiko: kesalahan tata letak/argumen widget yang hanya muncul saat dijalankan.
-   *Alternatif*: jalankan `python run.py` di Windows; semua logika non-UI sudah dites dan bisa dipakai lewat CLI.
+   pernah dibuka; kode diverifikasi statis (parse AST, semua jenis event tertangani, tidak ada `shell=True`,
+   API widget dicocokkan dengan sumber customtkinter 5.2.2). Risiko: kesalahan tata letak/argumen yang hanya
+   muncul saat dijalankan. *Alternatif*: jalankan `python run.py` di Windows; seluruh logika non-UI sudah dites
+   dan tersedia lewat CLI headless.
 3. **Preview tidak memutar video di dalam jendela.** CustomTkinter tidak punya video widget; aplikasi
-   menampilkan poster hasil render dan tombol **Putar** membuka MP4 di pemutar default Windows (tombol Buka
-   folder / Ekspor ulang juga tersedia). *Alternatif*: port UI ke PySide6 + `QtMultimedia` (perlu
-   pendekatan ulang `ui/`) atau sematkan WebView yang memutar file lokal.
-4. **Nama image Docker belum terverifikasi.** Tidak ada Dockerfile di repo EffectCraft dan ghcr.io tidak bisa
-   dihubungi. *Alternatif*: `docker/Dockerfile` (disertakan) + kolom image yang bisa diubah.
+   menampilkan poster hasil render, dan tombol **Putar** membuka MP4 di pemutar default Windows (tombol Buka
+   folder / Ekspor ulang tetap ada). *Alternatif*: port UI ke PySide6 + `QtMultimedia`, atau sematkan WebView
+   yang memutar file lokal.
+4. **Nama image Docker belum terverifikasi, dan render di Docker butuh GPU.** Repo EffectCraft tidak punya
+   Dockerfile dan ghcr.io tidak bisa dihubungi; renderer-nya berbasis wgpu sehingga container tanpa GPU jatuh
+   ke Mesa llvmpipe/lavapipe (lambat, sensitif versi driver). *Alternatif*: `docker/Dockerfile` (disertakan),
+   kolom image bisa diubah, mode **Lokal** dengan GPU, atau `docker run --gpus all`.
 5. **Efek & properti terbatas pada whitelist.** EffectCraft punya ±699 command dan 308 efek; aplikasi sengaja
-   hanya memakai 11 command dan 27 efek yang terdokumentasi agar translator aman dan deterministik.
-   *Alternatif*: tambahkan entri di `translator/whitelist.py` (nama, tipe param, contoh) setelah memeriksa
+   memakai 11 command dan 27 efek yang terdokumentasi agar translator aman dan deterministik.
+   *Alternatif*: tambahkan entri di `translator/whitelist.py` setelah memeriksa
    `effectcraft-cli exec --schemas --json`.
 6. **Parameter efek bertitik ternormalisasi hanya untuk layer solid.** `Gradient Ramp`/`Grid`/`Checkerboard`
-   memakai titik `[0..1]` relatif ukuran layer; untuk layer teks/bentuk nilainya harus piksel.
-   Translator menolak (bukan menebak) bila dikirim pada layer non-solid.
-7. **Tidak ada editor timeline/keyframe visual.** Mengedit animasi dilakukan lewat tab **Rencana JSON**
-   (validasi + render ulang). *Alternatif*: tambahkan form per-layer di atas `planner/schema.py`.
-8. **Simulator bukan tiruan sempurna.** Font sistem berbeda, efek didekati (gradasi, glow, blur, dsb.),
-   dan parameter efek lanjutan diabaikan. Video simulator tidak boleh dipakai sebagai bukti kualitas
-   EffectCraft.
+   memakai titik `[0..1]` relatif ukuran layer; untuk layer teks/bentuk nilainya harus piksel. Translator
+   menolak (bukan menebak) bila dikirim pada layer non-solid.
+7. **Tidak ada editor timeline/keyframe visual.** Animasi diedit lewat tab **Rencana JSON** (validasi + render
+   ulang). *Alternatif*: tambahkan form per-layer di atas `planner/schema.py`.
+8. **Simulator bukan tiruan sempurna.** Font sistem berbeda, efek didekati (gradasi, glow, blur, dsb.), dan
+   parameter efek lanjutan diabaikan. Video simulator bukan bukti kualitas EffectCraft.
 9. **Mode Live terbatas.** Control channel dipakai untuk `engine.execute` (membangun proyek di instance yang
-   berjalan) — render tetap via CLI karena `render` menolak `--bridge`. Protokol tidak punya autentikasi dan
-   hanya untuk loopback.
+   berjalan) — render tetap via CLI karena `render` menolak `--bridge`. Protokol tanpa autentikasi, hanya
+   untuk loopback.
 10. **LLM belum diuji terhadap API asli** (tanpa key/jaringan): hanya parsing, retry, dan jalur error yang
-    diuji. Model yang lemah bisa gagal mematuhi skema → setelah 3 percobaan aplikasi berhenti dengan pesan
-    jelas, atau Anda bisa memakai planner lokal.
-11. **Teks yang diekstrak dari prompt bersifat heuristik** (tanda kutip > setelah kata “teks/judul”, maksimal
-    120 karakter). Untuk hasil presisi, edit rencana JSON sebelum render.
+    diuji. Model lemah bisa gagal mematuhi skema → setelah 3 percobaan aplikasi berhenti dengan pesan jelas,
+    atau Anda memakai planner lokal.
+11. **Ekstraksi teks dari prompt bersifat heuristik** (tanda kutip > setelah kata “teks/judul”, maksimal 120
+    karakter). Untuk presisi, edit rencana JSON sebelum render.
 12. **PyInstaller onefile** memperlambat start (ekstraksi ke `%TEMP%`) dan dapat memicu antivirus; alternatif
     `--onedir` dengan menambahkan `COLLECT(...)` pada spec.
 

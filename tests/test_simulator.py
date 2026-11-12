@@ -68,8 +68,9 @@ def test_simulator_reports_step_number_on_unknown_command(tmp_path: Path):
         tmp_path / "p.ecproj",
     )
     assert not result.ok
-    assert result.error_step == 2
+    assert result.error_step == 1  # engine menomori step dari 0
     assert "tool.teleport" in (result.error or "")
+    assert "(step 1)" in (result.error or "")
 
 
 def test_simulator_rejects_bad_params(tmp_path: Path):
@@ -79,7 +80,7 @@ def test_simulator_rejects_bad_params(tmp_path: Path):
         tmp_path / "p.ecproj",
     )
     assert not result.ok
-    assert result.error_step == 1
+    assert result.error_step == 0
 
 
 def test_simulator_gradient_and_text_visible(tmp_path: Path):

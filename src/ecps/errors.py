@@ -59,7 +59,7 @@ class RunnerError(EcpsError):
         if self.command:
             parts.append(f"Command: {self.command}")
         if self.step is not None:
-            parts.append(f"Langkah: {self.step}")
+            parts.append(f"Langkah ke-{self.step + 1} (indeks engine {self.step}, 0-based)")
         parts.append(f"Pesan: {self.message}")
         tail = (self.stderr or self.stdout or "").strip()
         if tail:

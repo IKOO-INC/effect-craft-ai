@@ -938,8 +938,9 @@ class SimulationRunner:
                 return EngineResult(
                     ok=False,
                     steps=records,
-                    error=f"{cmd}: {e} (step {i + 1})",
-                    error_step=i + 1,
+                    # EffectCraft menomori step dari 0: `{id}: {e} (step {n})`.
+                    error=f"{cmd}: {e} (step {i})",
+                    error_step=i,
                     error_command=cmd,
                     seconds=time.monotonic() - t_start,
                 )
@@ -1024,7 +1025,7 @@ class SimulationRunner:
             try:
                 engine.execute(cmd, step.get("params") or {})
             except (SimError, ValueError, TypeError, KeyError) as e:
-                return None, f"{cmd}: {e} (step {i + 1})"
+                return None, f"{cmd}: {e} (step {i})"
         self._engine = engine
         return engine, None
 

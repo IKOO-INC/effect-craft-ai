@@ -12,6 +12,7 @@ Tidak ada shell yang dipakai: argumen dikirim langsung ke executable docker.
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from ..errors import RunnerError
@@ -20,6 +21,7 @@ from .local import _extract_json, _error_text
 from .process import run_command
 
 WORKDIR = "/work"
+_STEP_RE = re.compile(r"\(step (\d+)\)")  # CLI menomori step dari 0
 
 
 class DockerRunner:
@@ -149,12 +151,27 @@ class DockerRunner:
                     records.append(StepRecord(command=str(item.get("command") or ""), params=params, result=item.get("result")))
         if res.returncode != 0:
             message = _error_text(res.stdout, res.stderr)
+            m = _STEP_RE.search(message)
+            step_idx = int(m.group(1)) if m else None
+            error_command = None
+            if step_idx is not None and 0 <= step_idx < len(steps):
+                error_command = str(steps[step_idx].get("command") or "")
+                records.append(
+                    StepRecord(
+                        command=error_command,
+                        params=steps[step_idx].get("params", {}),
+                        ok=False,
+                        error=message,
+                    )
+                )
             return EngineResult(
                 ok=False,
                 steps=records,
                 stdout=res.stdout,
                 stderr=res.stderr,
                 error=message,
+                error_step=step_idx,
+                error_command=error_command,
                 seconds=t.seconds,
             )
         if not project_path.exists() or project_path.stat().st_size == 0:
