@@ -1,0 +1,55 @@
+[info] Percobaan 1/1
+[info] Memakai planner lokal (tanpa LLM).
+[info] 25 command siap dijalankan
+[step] comp.new ok
+[step] layer.newSolid ok
+[step] effect.apply ok
+[step] prop.set ok
+[step] prop.set ok
+[step] prop.set ok
+[step] prop.set ok
+[step] layer.newShape ok
+[step] prop.addKey ok
+[step] prop.addKey ok
+[step] keys.select ok
+[step] keys.easyEase ok
+[step] prop.addKey ok
+[step] prop.addKey ok
+[step] keys.select ok
+[step] keys.easyEase ok
+[step] layer.newText ok
+[step] prop.addKey ok
+[step] prop.addKey ok
+[step] keys.select ok
+[step] keys.easyEase ok
+[step] prop.addKey ok
+[step] prop.addKey ok
+[step] keys.select ok
+[step] keys.easyEase ok
+[progress-sim] frame 1/150
+[progress-sim] frame 8/150
+[progress-sim] frame 15/150
+[progress-sim] frame 22/150
+[progress-sim] frame 29/150
+[progress-sim] frame 36/150
+[progress-sim] frame 43/150
+[progress-sim] frame 50/150
+[progress-sim] frame 57/150
+[progress-sim] frame 64/150
+[progress-sim] frame 71/150
+[progress-sim] frame 78/150
+[progress-sim] frame 85/150
+[progress-sim] frame 92/150
+[progress-sim] frame 99/150
+[progress-sim] frame 106/150
+[progress-sim] frame 113/150
+[progress-sim] frame 120/150
+[progress-sim] frame 127/150
+[progress-sim] frame 134/150
+[progress-sim] frame 141/150
+[progress-sim] frame 148/150
+[info] SIMULATOR merender 150 frame 1920×1080
+[done] Selesai: /tmp/ecps-demo-ee7d1cz8/20261112-132826_intro-5-detik-teks/render.mp4
+
+SIMULATOR: video ini BUKAN hasil rendering EffectCraft.
+Jalankan scripts/verify_with_effectcraft.py di Windows untuk hasil asli.

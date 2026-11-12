@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "title": "Dza Izza Studio",
+  "style": "neon",
+  "comp": {
+    "name": "Main",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration": 4.0,
+    "background": "#05010f"
+  },
+  "layers": [
+    {
+      "name": "BG",
+      "type": "solid",
+      "color": "#05010f",
+      "effects": [
+        {
+          "effect": "Gradient Ramp",
+          "params": {
+            "startColor": "#05010f",
+            "endColor": "#2a0b53",
+            "start": [
+              0.5,
+              0.0
+            ],
+            "end": [
+              0.5,
+              1.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Logo Ring",
+      "type": "shape",
+      "shape": "ellipse",
+      "size": [
+        280.8,
+        280.8
+      ],
+      "fill": "#22d3ee",
+      "position": [
+        540.0,
+        806.4
+      ],
+      "animate": {
+        "scale": [
+          {
+            "time": 0.0,
+            "value": [
+              0,
+              0
+            ]
+          },
+          {
+            "time": 0.7,
+            "value": [
+              100,
+              100
+            ]
+          }
+        ],
+        "rotation": [
+          {
+            "time": 0.0,
+            "value": -40
+          },
+          {
+            "time": 0.9,
+            "value": 0
+          }
+        ],
+        "opacity": [
+          {
+            "time": 0.0,
+            "value": 0
+          },
+          {
+            "time": 0.45,
+            "value": 100
+          }
+        ]
+      },
+      "easing": "easyEase"
+    },
+    {
+      "name": "Logo Mark",
+      "type": "shape",
+      "shape": "rounded",
+      "size": [
+        154.44000000000003,
+        154.44000000000003
+      ],
+      "fill": "#05010f",
+      "position": [
+        540.0,
+        806.4
+      ],
+      "animate": {
+        "scale": [
+          {
+            "time": 0.25,
+            "value": [
+              0,
+              0
+            ]
+          },
+          {
+            "time": 0.9,
+            "value": [
+              100,
+              100
+            ]
+          }
+        ]
+      },
+      "easing": "easyEase"
+    },
+    {
+      "name": "Brand",
+      "type": "text",
+      "text": "Dza Izza Studio",
+      "position": [
+        540.0,
+        1267.2
+      ],
+      "fontSize": 81,
+      "fill": "#f5f3ff",
+      "justify": "center",
+      "animate": {
+        "opacity": [
+          {
+            "time": 0.8,
+            "value": 0
+          },
+          {
+            "time": 1.35,
+            "value": 100
+          }
+        ],
+        "position": [
+          {
+            "time": 0.8,
+            "value": [
+              540.0,
+              1324.8
+            ]
+          },
+          {
+            "time": 1.35,
+            "value": [
+              540.0,
+              1267.2
+            ]
+          }
+        ]
+      },
+      "easing": "easyEase"
+    }
+  ]
+}

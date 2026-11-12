@@ -1,0 +1,7 @@
+# Runtime aplikasi
+customtkinter>=5.2.2
+pillow>=10.0.0
+imageio-ffmpeg>=0.5.1      # menyediakan binary FFmpeg untuk poster & mode simulator
+# Pengembangan/verifikasi
+pytest>=8.0
+pyinstaller>=6.6

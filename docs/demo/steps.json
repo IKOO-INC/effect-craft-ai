@@ -1,0 +1,285 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "Main",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30.0,
+      "duration": 5.0,
+      "background": "#06122b"
+    }
+  },
+  {
+    "command": "layer.newSolid",
+    "params": {
+      "name": "BG",
+      "color": "#06122b",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layer": "BG"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "BG",
+      "path": "effects/#1/startColor",
+      "value": "#06122b"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "BG",
+      "path": "effects/#1/endColor",
+      "value": "#2f6bff"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "BG",
+      "path": "effects/#1/start",
+      "value": [
+        960.0,
+        0.0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "BG",
+      "path": "effects/#1/end",
+      "value": [
+        960.0,
+        1080.0
+      ]
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Accent Bar",
+      "size": [
+        422.4,
+        8.64
+      ],
+      "fill": "#7dd3fc",
+      "position": [
+        960.0,
+        673.0
+      ]
+    }
+  },
+  {
+    "command": "prop.addKey",
+    "params": {
+      "layer": "Accent Bar",
+      "path": "transform/scale",
+      "time": 0.0,
+      "timeBase": "comp",
+      "value": [
+        0.0,
+        100.0
+      ]
+    }
+  },
+  {
+    "command": "prop.addKey",
+    "params": {
+      "layer": "Accent Bar",
+      "path": "transform/scale",
+      "time": 0.7,
+      "timeBase": "comp",
+      "value": [
+        100.0,
+        100.0
+      ]
+    }
+  },
+  {
+    "command": "keys.select",
+    "params": {
+      "keys": [
+        {
+          "layer": "Accent Bar",
+          "path": "transform/scale",
+          "time": 0.0
+        },
+        {
+          "layer": "Accent Bar",
+          "path": "transform/scale",
+          "time": 0.7
+        }
+      ],
+      "timeBase": "comp"
+    }
+  },
+  {
+    "command": "keys.easyEase",
+    "params": {
+      "which": "both"
+    }
+  },
+  {
+    "command": "prop.addKey",
+    "params": {
+      "layer": "Accent Bar",
+      "path": "transform/opacity",
+      "time": 0.0,
+      "timeBase": "comp",
+      "value": 0.0
+    }
+  },
+  {
+    "command": "prop.addKey",
+    "params": {
+      "layer": "Accent Bar",
+      "path": "transform/opacity",
+      "time": 0.5,
+      "timeBase": "comp",
+      "value": 100.0
+    }
+  },
+  {
+    "command": "keys.select",
+    "params": {
+      "keys": [
+        {
+          "layer": "Accent Bar",
+          "path": "transform/opacity",
+          "time": 0.0
+        },
+        {
+          "layer": "Accent Bar",
+          "path": "transform/opacity",
+          "time": 0.5
+        }
+      ],
+      "timeBase": "comp"
+    }
+  },
+  {
+    "command": "keys.easyEase",
+    "params": {
+      "which": "both"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Title",
+      "text": "Majalah Dza Izza",
+      "position": [
+        960.0,
+        540.0
+      ],
+      "size": 140.0,
+      "fill": "#ffffff",
+      "justify": "center"
+    }
+  },
+  {
+    "command": "prop.addKey",
+    "params": {
+      "layer": "Title",
+      "path": "transform/opacity",
+      "time": 0.12,
+      "timeBase": "comp",
+      "value": 0.0
+    }
+  },
+  {
+    "command": "prop.addKey",
+    "params": {
+      "layer": "Title",
+      "path": "transform/opacity",
+      "time": 0.92,
+      "timeBase": "comp",
+      "value": 100.0
+    }
+  },
+  {
+    "command": "keys.select",
+    "params": {
+      "keys": [
+        {
+          "layer": "Title",
+          "path": "transform/opacity",
+          "time": 0.12
+        },
+        {
+          "layer": "Title",
+          "path": "transform/opacity",
+          "time": 0.92
+        }
+      ],
+      "timeBase": "comp"
+    }
+  },
+  {
+    "command": "keys.easyEase",
+    "params": {
+      "which": "both"
+    }
+  },
+  {
+    "command": "prop.addKey",
+    "params": {
+      "layer": "Title",
+      "path": "transform/position",
+      "time": 0.12,
+      "timeBase": "comp",
+      "value": [
+        960.0,
+        610.0
+      ]
+    }
+  },
+  {
+    "command": "prop.addKey",
+    "params": {
+      "layer": "Title",
+      "path": "transform/position",
+      "time": 0.92,
+      "timeBase": "comp",
+      "value": [
+        960.0,
+        540.0
+      ]
+    }
+  },
+  {
+    "command": "keys.select",
+    "params": {
+      "keys": [
+        {
+          "layer": "Title",
+          "path": "transform/position",
+          "time": 0.12
+        },
+        {
+          "layer": "Title",
+          "path": "transform/position",
+          "time": 0.92
+        }
+      ],
+      "timeBase": "comp"
+    }
+  },
+  {
+    "command": "keys.easyEase",
+    "params": {
+      "which": "both"
+    }
+  }
+]

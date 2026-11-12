@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "title": "Majalah Dza Izza",
+  "style": "minimalis",
+  "comp": {
+    "name": "Main",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "duration": 5.0,
+    "background": "#06122b"
+  },
+  "layers": [
+    {
+      "name": "BG",
+      "type": "solid",
+      "color": "#06122b",
+      "effects": [
+        {
+          "effect": "Gradient Ramp",
+          "params": {
+            "startColor": "#06122b",
+            "endColor": "#2f6bff",
+            "start": [
+              0.5,
+              0.0
+            ],
+            "end": [
+              0.5,
+              1.0
+            ]
+          }
+        }
+      ],
+      "easing": "easyEase"
+    },
+    {
+      "name": "Accent Bar",
+      "type": "shape",
+      "shape": "rounded",
+      "size": [
+        422.4,
+        8.64
+      ],
+      "position": [
+        960.0,
+        673.0
+      ],
+      "fill": "#7dd3fc",
+      "animate": {
+        "scale": [
+          {
+            "time": 0.0,
+            "value": [
+              0.0,
+              100.0
+            ]
+          },
+          {
+            "time": 0.7,
+            "value": [
+              100.0,
+              100.0
+            ]
+          }
+        ],
+        "opacity": [
+          {
+            "time": 0.0,
+            "value": 0.0
+          },
+          {
+            "time": 0.5,
+            "value": 100.0
+          }
+        ]
+      },
+      "easing": "easyEase"
+    },
+    {
+      "name": "Title",
+      "type": "text",
+      "text": "Majalah Dza Izza",
+      "position": [
+        960.0,
+        540.0
+      ],
+      "fontSize": 140.0,
+      "fill": "#ffffff",
+      "justify": "center",
+      "animate": {
+        "opacity": [
+          {
+            "time": 0.12,
+            "value": 0.0
+          },
+          {
+            "time": 0.92,
+            "value": 100.0
+          }
+        ],
+        "position": [
+          {
+            "time": 0.12,
+            "value": [
+              960.0,
+              610.0
+            ]
+          },
+          {
+            "time": 0.92,
+            "value": [
+              960.0,
+              540.0
+            ]
+          }
+        ]
+      },
+      "easing": "easyEase"
+    }
+  ]
+}
