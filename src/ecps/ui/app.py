@@ -343,7 +343,7 @@ class PromptStudioApp(ctk.CTk):
                 pass
 
     # ============================================================== helpers
-    def _options(self) -> dict:
+    def _ecps_options(self) -> dict:
         resolution = "1080p"
         label = self.res_var.get()
         for key, (_w, _h, text) in RESOLUTIONS.items():
@@ -409,7 +409,7 @@ class PromptStudioApp(ctk.CTk):
         if not prompt:
             messagebox.showinfo("Prompt kosong", "Tulis prompt terlebih dahulu.", parent=self)
             return
-        options = self._options()
+        options = self._ecps_options()
         self._persist_defaults(options)
         self._set_busy(True)
         self.tabs.set("Log")
