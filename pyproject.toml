@@ -1,0 +1,15 @@
+[project]
+name = "effectcraft-prompt-studio"
+version = "0.1.0"
+description = "Prompt → motion graphics video dengan mengemudikan EffectCraft (JSON plan + translator + CLI/Docker)"
+requires-python = ">=3.11"
+dependencies = [
+    "customtkinter>=5.2.2",
+    "pillow>=10.0.0",
+    "imageio-ffmpeg>=0.5.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"

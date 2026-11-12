@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+*.spec.bak
+# hasil render & proyek lokal (jangan di-commit)
+projects/
+*.mp4
+!docs/demo/*.mp4
+*.ecproj
+*.sim.json

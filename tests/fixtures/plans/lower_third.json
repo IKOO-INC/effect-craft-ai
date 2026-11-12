@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "title": "Budi Santoso",
+  "style": "korporat",
+  "comp": {
+    "name": "Main",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "duration": 6.0,
+    "background": "#0b2545"
+  },
+  "layers": [
+    {
+      "name": "BG",
+      "type": "solid",
+      "color": "#0b2545",
+      "effects": [
+        {
+          "effect": "Gradient Ramp",
+          "params": {
+            "startColor": "#0b2545",
+            "endColor": "#134074",
+            "start": [
+              0.5,
+              0.0
+            ],
+            "end": [
+              0.5,
+              1.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lower Third Panel",
+      "type": "solid",
+      "color": "#0b1220",
+      "width": 1190,
+      "height": 172,
+      "position": [
+        768.0,
+        831.6
+      ],
+      "animate": {
+        "position": [
+          {
+            "time": 0.2,
+            "value": [
+              537.6,
+              831.6
+            ]
+          },
+          {
+            "time": 0.85,
+            "value": [
+              768.0,
+              831.6
+            ]
+          }
+        ],
+        "opacity": [
+          {
+            "time": 0.15,
+            "value": 0
+          },
+          {
+            "time": 0.7,
+            "value": 92
+          },
+          {
+            "time": 5.4,
+            "value": 0
+          }
+        ]
+      },
+      "easing": "easyEase"
+    },
+    {
+      "name": "Accent Bar",
+      "type": "shape",
+      "shape": "rect",
+      "size": [
+        23.04,
+        172
+      ],
+      "fill": "#8ecae6",
+      "position": [
+        172.79999999999998,
+        831.6
+      ],
+      "animate": {
+        "scale": [
+          {
+            "time": 0.25,
+            "value": [
+              100,
+              0
+            ]
+          },
+          {
+            "time": 0.8,
+            "value": [
+              100,
+              100
+            ]
+          },
+          {
+            "time": 5.4,
+            "value": [
+              100,
+              0
+            ]
+          }
+        ]
+      },
+      "easing": "easyEase"
+    },
+    {
+      "name": "Name",
+      "type": "text",
+      "text": "Budi Santoso",
+      "position": [
+        249.59999999999997,
+        793.8000000000001
+      ],
+      "fontSize": 59,
+      "fill": "#ffffff",
+      "justify": "left",
+      "animate": {
+        "opacity": [
+          {
+            "time": 0.45,
+            "value": 0
+          },
+          {
+            "time": 1.0,
+            "value": 100
+          },
+          {
+            "time": 5.4,
+            "value": 0
+          }
+        ],
+        "position": [
+          {
+            "time": 0.45,
+            "value": [
+              209.59999999999997,
+              793.8000000000001
+            ]
+          },
+          {
+            "time": 1.0,
+            "value": [
+              249.59999999999997,
+              793.8000000000001
+            ]
+          }
+        ]
+      },
+      "easing": "easyEase"
+    },
+    {
+      "name": "Role",
+      "type": "text",
+      "text": "Job Title / Keterangan",
+      "position": [
+        249.59999999999997,
+        858.6
+      ],
+      "fontSize": 36,
+      "fill": "#8ecae6",
+      "justify": "left",
+      "animate": {
+        "opacity": [
+          {
+            "time": 0.7,
+            "value": 0
+          },
+          {
+            "time": 1.2,
+            "value": 100
+          },
+          {
+            "time": 5.4,
+            "value": 0
+          }
+        ]
+      },
+      "easing": "easyEase"
+    }
+  ]
+}

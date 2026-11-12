@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "title": "Countdown 3 angka besar 6 ungu",
+  "style": "bold",
+  "comp": {
+    "name": "Main",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "duration": 6.0,
+    "background": "#120626"
+  },
+  "layers": [
+    {
+      "name": "BG",
+      "type": "solid",
+      "color": "#120626",
+      "effects": [
+        {
+          "effect": "Gradient Ramp",
+          "params": {
+            "startColor": "#120626",
+            "endColor": "#7c3aed",
+            "start": [
+              0.5,
+              0.0
+            ],
+            "end": [
+              0.5,
+              1.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Caption",
+      "type": "text",
+      "text": "Countdown 3 angka besar 6 ungu",
+      "position": [
+        960.0,
+        885.5999999999999
+      ],
+      "fontSize": 48,
+      "fill": "#ff4d29",
+      "justify": "center",
+      "animate": {
+        "opacity": [
+          {
+            "time": 0.0,
+            "value": 0
+          },
+          {
+            "time": 0.5,
+            "value": 100
+          }
+        ]
+      },
+      "easing": "easyEase"
+    },
+    {
+      "name": "Count 3",
+      "type": "text",
+      "text": "3",
+      "position": [
+        960.0,
+        486.0
+      ],
+      "fontSize": 367,
+      "fill": "#ffffff",
+      "justify": "center",
+      "in": 0.0,
+      "out": 1.98,
+      "animate": {
+        "scale": [
+          {
+            "time": 0.0,
+            "value": [
+              130,
+              130
+            ]
+          },
+          {
+            "time": 0.9,
+            "value": [
+              100,
+              100
+            ]
+          }
+        ],
+        "opacity": [
+          {
+            "time": 0.0,
+            "value": 0
+          },
+          {
+            "time": 0.5,
+            "value": 100
+          }
+        ]
+      },
+      "easing": "easyEase"
+    },
+    {
+      "name": "Count 2",
+      "type": "text",
+      "text": "2",
+      "position": [
+        960.0,
+        486.0
+      ],
+      "fontSize": 367,
+      "fill": "#ffffff",
+      "justify": "center",
+      "in": 2.0,
+      "out": 3.98,
+      "animate": {
+        "scale": [
+          {
+            "time": 2.0,
+            "value": [
+              130,
+              130
+            ]
+          },
+          {
+            "time": 2.9,
+            "value": [
+              100,
+              100
+            ]
+          }
+        ],
+        "opacity": [
+          {
+            "time": 2.0,
+            "value": 0
+          },
+          {
+            "time": 2.5,
+            "value": 100
+          }
+        ]
+      },
+      "easing": "easyEase"
+    },
+    {
+      "name": "Count 1",
+      "type": "text",
+      "text": "1",
+      "position": [
+        960.0,
+        486.0
+      ],
+      "fontSize": 367,
+      "fill": "#ffffff",
+      "justify": "center",
+      "in": 4.0,
+      "out": 5.98,
+      "animate": {
+        "scale": [
+          {
+            "time": 4.0,
+            "value": [
+              130,
+              130
+            ]
+          },
+          {
+            "time": 4.9,
+            "value": [
+              100,
+              100
+            ]
+          }
+        ],
+        "opacity": [
+          {
+            "time": 4.0,
+            "value": 0
+          },
+          {
+            "time": 4.5,
+            "value": 100
+          }
+        ]
+      },
+      "easing": "easyEase"
+    }
+  ]
+}

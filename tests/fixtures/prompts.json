@@ -1,0 +1,27 @@
+[
+  {
+    "id": "title_fade_in",
+    "kind": "title",
+    "prompt": "Judul 'Selamat Datang' muncul fade-in di tengah, latar gradasi biru, 5 detik, 1080p, gaya minimalis"
+  },
+  {
+    "id": "lower_third",
+    "kind": "lower_third",
+    "prompt": "Lower third untuk nama 'Budi Santoso' dengan jabatan, muncul dari kiri, durasi 6 detik, gaya korporat"
+  },
+  {
+    "id": "logo_reveal",
+    "kind": "logo_reveal",
+    "prompt": "Logo reveal 'Dza Izza Studio', cincin berputar dan teks muncul, 4 detik, gaya neon, vertikal 9:16"
+  },
+  {
+    "id": "countdown",
+    "kind": "countdown",
+    "prompt": "Countdown 3 angka besar, durasi 6 detik, latar gradasi ungu, gaya bold"
+  },
+  {
+    "id": "youtube_intro",
+    "kind": "youtube_intro",
+    "prompt": "Intro YouTube channel 'Kreator Nusantara' dengan ajakan subscribe, 5 detik, 720p, gaya podcast"
+  }
+]

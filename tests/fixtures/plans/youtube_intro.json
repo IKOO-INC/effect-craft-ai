@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "title": "Kreator Nusantara",
+  "style": "podcast",
+  "comp": {
+    "name": "Main",
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "duration": 5.0,
+    "background": "#101418"
+  },
+  "layers": [
+    {
+      "name": "BG",
+      "type": "solid",
+      "color": "#101418",
+      "effects": [
+        {
+          "effect": "Gradient Ramp",
+          "params": {
+            "startColor": "#101418",
+            "endColor": "#22303c",
+            "start": [
+              0.5,
+              0.0
+            ],
+            "end": [
+              0.5,
+              1.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Band",
+      "type": "shape",
+      "shape": "rounded",
+      "size": [
+        947.2,
+        158.4
+      ],
+      "fill": "#ffffff",
+      "position": [
+        640.0,
+        360.0
+      ],
+      "animate": {
+        "scale": [
+          {
+            "time": 0.0,
+            "value": [
+              0,
+              100
+            ]
+          },
+          {
+            "time": 0.65,
+            "value": [
+              100,
+              100
+            ]
+          }
+        ],
+        "opacity": [
+          {
+            "time": 0.0,
+            "value": 0
+          },
+          {
+            "time": 0.3,
+            "value": 18
+          }
+        ]
+      },
+      "easing": "easyEase"
+    },
+    {
+      "name": "Channel",
+      "type": "text",
+      "text": "Kreator Nusantara",
+      "position": [
+        640.0,
+        331.2
+      ],
+      "fontSize": 61,
+      "fill": "#f8fafc",
+      "justify": "center",
+      "animate": {
+        "opacity": [
+          {
+            "time": 0.35,
+            "value": 0
+          },
+          {
+            "time": 1.0,
+            "value": 100
+          }
+        ],
+        "position": [
+          {
+            "time": 0.35,
+            "value": [
+              640.0,
+              367.2
+            ]
+          },
+          {
+            "time": 1.0,
+            "value": [
+              640.0,
+              331.2
+            ]
+          }
+        ]
+      },
+      "easing": "easyEase"
+    },
+    {
+      "name": "Tagline",
+      "type": "text",
+      "text": "Subscribe untuk video berikutnya",
+      "position": [
+        640.0,
+        410.4
+      ],
+      "fontSize": 25,
+      "fill": "#34d399",
+      "justify": "center",
+      "animate": {
+        "opacity": [
+          {
+            "time": 0.9,
+            "value": 0
+          },
+          {
+            "time": 1.5,
+            "value": 100
+          }
+        ]
+      },
+      "easing": "easyEase"
+    },
+    {
+      "name": "Subscribe Bar",
+      "type": "shape",
+      "shape": "rounded",
+      "size": [
+        384.0,
+        12.959999999999999
+      ],
+      "fill": "#34d399",
+      "position": [
+        640.0,
+        460.8
+      ],
+      "animate": {
+        "scale": [
+          {
+            "time": 1.0,
+            "value": [
+              0,
+              100
+            ]
+          },
+          {
+            "time": 1.6,
+            "value": [
+              100,
+              100
+            ]
+          }
+        ],
+        "opacity": [
+          {
+            "time": 1.0,
+            "value": 0
+          },
+          {
+            "time": 1.3,
+            "value": 100
+          }
+        ]
+      },
+      "easing": "easyEase"
+    }
+  ]
+}
